@@ -1,0 +1,2151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Clínica Popular Sensivita | Saúde e Cuidado</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    :root {
+      --background: 275 100% 98%;
+      --foreground: 0 0% 20%;
+      --card: 0 0% 100%;
+      --primary: 270 72% 39%;
+      --primary-dark: 270 72% 31%;
+      --primary-light: 270 50% 96%;
+      --secondary: 270 20% 96%;
+      --muted: 0 0% 41%;
+      --accent: 340 60% 50%;
+      --success: 142 71% 45%;
+      --border: 270 20% 90%;
+      --radius: 1.5rem;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: hsl(var(--background));
+      color: hsl(var(--foreground));
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto;
+    }
+
+    /* ================= HEADER ================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid hsl(var(--border));
+    }
+
+    .navbar {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      font-weight: 700;
+      color: hsl(var(--primary));
+      font-size: 20px;
+    }
+
+    /* FOTO DE PERFIL / LOGO */
+
+    .logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: white;
+      border: 2px solid hsl(var(--primary-light));
+      box-shadow: 0 7px 20px rgba(70,35,100,.15);
+      flex-shrink: 0;
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      transition: .2s;
+    }
+
+    .nav-links a:hover {
+      color: hsl(var(--primary));
+    }
+
+    .nav-button {
+      background: hsl(var(--primary));
+      color: white !important;
+      padding: 12px 20px;
+      border-radius: 999px;
+    }
+
+    .nav-button:hover {
+      background: hsl(var(--primary-dark));
+      transform: translateY(-1px);
+    }
+
+    /* ================= HERO ================= */
+
+    .hero {
+      padding: 85px 0 70px;
+
+      background:
+        radial-gradient(
+          circle at 90% 10%,
+          rgba(171,89,161,.13),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 5% 90%,
+          rgba(105,66,170,.10),
+          transparent 30%
+        );
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: hsl(var(--primary-light));
+      color: hsl(var(--primary));
+      padding: 8px 15px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .eyebrow span {
+      width: 8px;
+      height: 8px;
+      background: hsl(var(--success));
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 5vw, 64px);
+      line-height: 1.08;
+      letter-spacing: -2px;
+      margin-bottom: 23px;
+    }
+
+    .hero h1 strong {
+      color: hsl(var(--primary));
+    }
+
+    .hero p {
+      color: hsl(var(--muted));
+      max-width: 610px;
+      font-size: 17px;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: .25s;
+    }
+
+    .btn-primary {
+      background: hsl(var(--primary));
+      color: white;
+      box-shadow: 0 10px 25px rgba(87,42,130,.18);
+    }
+
+    .btn-primary:hover {
+      background: hsl(var(--primary-dark));
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 1px solid hsl(var(--border));
+      background: white;
+      color: hsl(var(--primary));
+    }
+
+    .btn-outline:hover {
+      border-color: hsl(var(--primary));
+      transform: translateY(-2px);
+    }
+
+    /* ================= HERO FOTO ================= */
+
+    .hero-card {
+      position: relative;
+    }
+
+    .hero-image {
+      height: 510px;
+      border-radius: 35px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(35,20,50,.15);
+      background: #eee;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .floating-card {
+      position: absolute;
+      bottom: 25px;
+      left: -25px;
+      background: white;
+      border-radius: 20px;
+      padding: 18px 20px;
+      box-shadow: 0 15px 40px rgba(30,20,40,.15);
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      min-width: 225px;
+    }
+
+    .floating-icon {
+      width: 45px;
+      height: 45px;
+      border-radius: 13px;
+      background: hsl(var(--primary-light));
+      color: hsl(var(--primary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 21px;
+    }
+
+    .floating-card small {
+      display: block;
+      color: hsl(var(--muted));
+      font-size: 11px;
+    }
+
+    .floating-card strong {
+      font-size: 14px;
+    }
+
+    /* ================= STATS ================= */
+
+    .stats {
+      margin-top: 25px;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 15px;
+    }
+
+    .stat {
+      background: white;
+      border: 1px solid hsl(var(--border));
+      padding: 18px;
+      border-radius: 18px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 25px;
+      color: hsl(var(--primary));
+    }
+
+    .stat span {
+      color: hsl(var(--muted));
+      font-size: 12px;
+    }
+
+    /* ================= SEÇÕES ================= */
+
+    section {
+      padding: 90px 0;
+    }
+
+    .section-header {
+      max-width: 700px;
+      margin: 0 auto 50px;
+      text-align: center;
+    }
+
+    .section-header span {
+      color: hsl(var(--primary));
+      font-weight: 700;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+    }
+
+    .section-header h2 {
+      margin-top: 8px;
+      font-size: clamp(30px,4vw,43px);
+      line-height: 1.15;
+    }
+
+    .section-header p {
+      color: hsl(var(--muted));
+      margin-top: 15px;
+    }
+
+    /* ================= SOBRE ================= */
+
+    .about {
+      background: white;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-image {
+      height: 470px;
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,.09);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-content h2 {
+      font-size: 39px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .about-content p {
+      color: hsl(var(--muted));
+      margin-bottom: 18px;
+    }
+
+    .check-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .check {
+      display: flex;
+      gap: 11px;
+      align-items: flex-start;
+    }
+
+    .check-icon {
+      width: 25px;
+      height: 25px;
+      flex: 0 0 25px;
+      border-radius: 50%;
+      background: hsl(var(--primary-light));
+      color: hsl(var(--primary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .check span {
+      font-size: 14px;
+    }
+
+    /* ================= CARDS ================= */
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid hsl(var(--border));
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: .25s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 35px rgba(30,20,50,.08);
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: hsl(var(--primary-light));
+      color: hsl(var(--primary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      margin-bottom: 9px;
+      font-size: 18px;
+    }
+
+    .card p {
+      color: hsl(var(--muted));
+      font-size: 14px;
+    }
+
+    /* ================= SERVIÇOS ================= */
+
+    .services {
+      background: hsl(var(--primary-light));
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 18px;
+    }
+
+    .service {
+      background: white;
+      padding: 23px;
+      border-radius: 20px;
+      border: 1px solid hsl(var(--border));
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .service-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: hsl(var(--primary-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: hsl(var(--primary));
+      font-size: 19px;
+      flex-shrink: 0;
+    }
+
+    .service h3 {
+      font-size: 15px;
+    }
+
+    .service p {
+      color: hsl(var(--muted));
+      font-size: 12px;
+    }
+
+    /* ================= GALERIA ================= */
+
+    .gallery {
+      display: grid;
+      grid-template-columns: 1.3fr .7fr;
+      grid-template-rows: 280px 280px;
+      gap: 15px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 22px;
+      background: #ddd;
+    }
+
+    .gallery-item:first-child {
+      grid-row: 1 / 3;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: .4s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    /* ================= EXPERIÊNCIA ================= */
+
+    .experience {
+      background: white;
+    }
+
+    .experience-box {
+      background: linear-gradient(
+        135deg,
+        hsl(var(--primary)),
+        hsl(var(--primary-dark))
+      );
+      color: white;
+      border-radius: 32px;
+      padding: 55px;
+      display: grid;
+      grid-template-columns: 1fr .8fr;
+      gap: 50px;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .experience-box h2 {
+      font-size: 39px;
+      line-height: 1.2;
+      margin-bottom: 17px;
+    }
+
+    .experience-box p {
+      color: rgba(255,255,255,.82);
+      font-size: 15px;
+    }
+
+    .experience-number {
+      text-align: center;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 25px;
+      padding: 30px;
+      background: rgba(255,255,255,.08);
+    }
+
+    .experience-number strong {
+      display: block;
+      font-size: 68px;
+      line-height: 1;
+    }
+
+    .experience-number span {
+      font-size: 14px;
+      opacity: .85;
+    }
+
+    /* ================= VAGAS ================= */
+
+    .jobs {
+      background:
+        radial-gradient(
+          circle at 90% 20%,
+          rgba(171,89,161,.11),
+          transparent 30%
+        ),
+        hsl(var(--background));
+    }
+
+    .job-intro {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .job-intro .badge {
+      display: inline-block;
+      padding: 8px 16px;
+      background: #eaf8ef;
+      color: #208542;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 13px;
+    }
+
+    .job-intro h2 {
+      font-size: clamp(30px,4vw,45px);
+      margin-bottom: 10px;
+    }
+
+    .job-intro p {
+      color: hsl(var(--muted));
+    }
+
+    .job-card {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      border-radius: 30px;
+      border: 1px solid hsl(var(--border));
+      box-shadow: 0 25px 60px rgba(50,25,75,.10);
+      overflow: hidden;
+    }
+
+    .job-top {
+      padding: 35px;
+      background:
+        linear-gradient(
+          135deg,
+          hsl(var(--primary-light)),
+          white
+        );
+      border-bottom: 1px solid hsl(var(--border));
+    }
+
+    .job-top small {
+      color: hsl(var(--primary));
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 11px;
+    }
+
+    .job-top h3 {
+      font-size: 30px;
+      line-height: 1.2;
+      margin: 8px 0;
+    }
+
+    .job-top p {
+      color: hsl(var(--muted));
+      font-size: 14px;
+    }
+
+    .job-body {
+      padding: 35px;
+    }
+
+    .job-info {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .info-box {
+      border: 1px solid hsl(var(--border));
+      border-radius: 18px;
+      padding: 17px;
+    }
+
+    .info-box small {
+      color: hsl(var(--muted));
+      display: block;
+      font-size: 11px;
+      margin-bottom: 4px;
+    }
+
+    .info-box strong {
+      font-size: 14px;
+    }
+
+    .job-section {
+      margin-top: 25px;
+    }
+
+    .job-section h4 {
+      font-size: 17px;
+      margin-bottom: 12px;
+    }
+
+    .job-list {
+      list-style: none;
+      display: grid;
+      gap: 9px;
+    }
+
+    .job-list li {
+      display: flex;
+      gap: 9px;
+      color: hsl(var(--muted));
+      font-size: 14px;
+    }
+
+    .job-list li::before {
+      content: "✓";
+      color: hsl(var(--success));
+      font-weight: 700;
+    }
+
+    .benefits {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .benefit {
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: hsl(var(--primary-light));
+      color: hsl(var(--primary));
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    /* ================= AVISO ================= */
+
+    .important-notice {
+      margin-top: 30px;
+      padding: 20px 22px;
+      border-radius: 17px;
+      background: #fff4f4;
+      border: 1px solid #f2c6c6;
+      color: #c51f1f;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .important-notice strong {
+      display: block;
+      margin-bottom: 4px;
+      color: #b40000;
+    }
+
+    /* ================= WHATSAPP ================= */
+
+    .job-cta {
+      margin-top: 30px;
+      padding-top: 25px;
+      border-top: 1px solid hsl(var(--border));
+      text-align: center;
+    }
+
+    .job-cta p {
+      color: hsl(var(--muted));
+      font-size: 13px;
+      margin-bottom: 15px;
+    }
+
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #25D366;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: .25s;
+      box-shadow: 0 10px 25px rgba(37,211,102,.20);
+    }
+
+    .whatsapp-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer {
+      background: #24152e;
+      color: white;
+      padding: 55px 0 25px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr .8fr;
+      gap: 50px;
+      padding-bottom: 40px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    footer p {
+      color: rgba(255,255,255,.65);
+      font-size: 13px;
+    }
+
+    footer h4 {
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 9px;
+      color: rgba(255,255,255,.65);
+      font-size: 13px;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,.12);
+      padding-top: 20px;
+      text-align: center;
+      color: rgba(255,255,255,.5);
+      font-size: 11px;
+    }
+
+    /* ================= WHATSAPP FLUTUANTE ================= */
+
+    .floating-whatsapp {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #25D366;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      z-index: 999;
+      box-shadow: 0 10px 30px rgba(0,0,0,.20);
+      transition: .25s;
+    }
+
+    .floating-whatsapp:hover {
+      transform: scale(1.08);
+    }
+
+    /* ================= MOBILE ================= */
+
+    @media (max-width:900px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid,
+      .about-grid,
+      .experience-box {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 55px;
+      }
+
+      .hero-image {
+        height: 390px;
+      }
+
+      .floating-card {
+        left: 15px;
+      }
+
+      .cards,
+      .service-grid {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 260px 200px;
+      }
+
+      .gallery-item:first-child {
+        grid-column: 1 / 3;
+        grid-row: auto;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width:600px) {
+
+      section {
+        padding: 65px 0;
+      }
+
+      .hero h1 {
+        letter-spacing: -1px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .cards,
+      .service-grid,
+      .job-info {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 220px 220px 220px;
+      }
+
+      .gallery-item:first-child {
+        grid-column: auto;
+      }
+
+      .experience-box {
+        padding: 32px 24px;
+      }
+
+      .experience-box h2 {
+        font-size: 30px;
+      }
+
+      .job-top,
+      .job-body {
+        padding: 25px 20px;
+      }
+
+      .job-top h3 {
+        font-size: 25px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .whatsapp-btn {
+        width: 100%;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <!-- ================= CABEÇALHO ================= -->
+
+  <header>
+
+    <div class="container navbar">
+
+      <a href="#inicio" class="brand">
+
+        <div class="logo">
+
+          <img
+            src="https://pps.whatsapp.net/v/t61.24694-24/473411930_2127342767702952_8773740801055994734_n.jpg?ccb=11-4&oh=01_Q5Aa5gH-WaT6Yqts9UqewKgclOTX3aIqcz4rpavIkncWb4XR-A&oe=6AAAE5D7&_nc_sid=5e03e0&_nc_cat=103"
+            alt="Logo"
+          >
+
+        </div>
+
+        <span>Clínica Popular Sensivita</span>
+
+      </a>
+
+
+      <nav class="nav-links">
+
+        <a href="#inicio">
+          Início
+        </a>
+
+        <a href="#clinica">
+          Nossa Clínica
+        </a>
+
+        <a href="#especialidades">
+          Especialidades
+        </a>
+
+        <a href="#estrutura">
+          Estrutura
+        </a>
+
+        <a href="#vagas" class="nav-button">
+          Oportunidades
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <main>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero" id="inicio">
+
+      <div class="container hero-grid">
+
+
+        <div>
+
+          <div class="eyebrow">
+
+            <span></span>
+
+            Cuidado, acolhimento e qualidade
+
+          </div>
+
+
+          <h1>
+
+            Sua saúde merece
+            <strong>
+              um cuidado completo.
+            </strong>
+
+          </h1>
+
+
+          <p>
+
+            Um espaço pensado para oferecer atendimento humanizado,
+            profissionais qualificados e uma experiência de cuidado
+            cada vez mais completa para nossos pacientes.
+
+          </p>
+
+
+          <div class="hero-buttons">
+
+            <a href="#clinica" class="btn btn-primary">
+
+              Conheça nossa clínica
+
+            </a>
+
+
+            <a href="#vagas" class="btn btn-outline">
+
+              Ver oportunidades
+
+            </a>
+
+          </div>
+
+
+          <div class="stats">
+
+            <div class="stat">
+
+              <strong>
+                7+
+              </strong>
+
+              <span>
+                Anos de experiência
+              </span>
+
+            </div>
+
+
+            <div class="stat">
+
+              <strong>
+                40+
+              </strong>
+
+              <span>
+                Especialidades
+              </span>
+
+            </div>
+
+
+            <div class="stat">
+
+              <strong>
+                50+
+              </strong>
+
+              <span>
+                Serviços e exames
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="hero-card">
+
+          <div class="hero-image">
+
+            <img
+              src="https://vibe.filesafe.space/1782152642790896981/attachments/e275f36a-b8a0-4b3d-ab29-4fe0d8bd6e7d.png"
+              alt="Recepção da clínica"
+            >
+
+          </div>
+
+
+          <div class="floating-card">
+
+            <div class="floating-icon">
+              ✚
+            </div>
+
+            <div>
+
+              <small>
+                Atendimento
+              </small>
+
+              <strong>
+                Humanizado e acolhedor
+              </strong>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= NOSSA CLÍNICA ================= -->
+
+    <section class="about" id="clinica">
+
+      <div class="container about-grid">
+
+
+        <div class="about-image">
+
+          <img
+            src="https://vibe.filesafe.space/1782152642790896981/attachments/360bc066-a8cc-421c-b97e-145510d1fad3.png"
+            alt="Estrutura da clínica"
+          >
+
+        </div>
+
+
+        <div class="about-content">
+
+          <span class="eyebrow">
+            Nossa clínica
+          </span>
+
+
+          <h2>
+
+            Experiência, confiança e cuidado em um só lugar.
+
+          </h2>
+
+
+          <p>
+
+            Ao longo de nossa trajetória, construímos uma proposta
+            baseada em atendimento próximo, respeito ao paciente e
+            busca constante pela qualidade.
+
+          </p>
+
+
+          <p>
+
+            Nossa estrutura foi planejada para proporcionar um ambiente
+            confortável, organizado e preparado para receber diferentes
+            necessidades de saúde.
+
+          </p>
+
+
+          <div class="check-list">
+
+
+            <div class="check">
+
+              <div class="check-icon">
+                ✓
+              </div>
+
+              <span>
+                Atendimento humanizado e focado no paciente.
+              </span>
+
+            </div>
+
+
+            <div class="check">
+
+              <div class="check-icon">
+                ✓
+              </div>
+
+              <span>
+                Profissionais qualificados e preparados.
+              </span>
+
+            </div>
+
+
+            <div class="check">
+
+              <div class="check-icon">
+                ✓
+              </div>
+
+              <span>
+                Ambiente organizado e acolhedor.
+              </span>
+
+            </div>
+
+
+            <div class="check">
+
+              <div class="check-icon">
+                ✓
+              </div>
+
+              <span>
+                Compromisso com qualidade e segurança.
+              </span>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= DADOS CADASTRAIS ================= -->
+
+    <section>
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <span>
+            Dados cadastrais
+          </span>
+
+          <h2>
+            Informações da empresa
+          </h2>
+
+        </div>
+
+        <div style="max-width:900px;margin:0 auto;background:#fff;border:1px solid #e5e7eb;border-radius:22px;padding:28px;box-shadow:0 10px 30px rgba(0,0,0,.05);">
+
+          <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;">
+
+            <div style="padding:16px;background:#f7f7fb;border-radius:14px;">
+              <strong>CNPJ</strong><br>
+              <span>27.107.380/0001-14</span>
+            </div>
+
+            <div style="padding:16px;background:#f7f7fb;border-radius:14px;">
+              <strong>Razão Social</strong><br>
+              <span>Sensivita Clínica de Saúde Ltda.</span>
+            </div>
+
+            <div style="padding:16px;background:#f7f7fb;border-radius:14px;">
+              <strong>Nome Fantasia</strong><br>
+              <span>Sensivita Clínica de Saúde</span>
+            </div>
+
+            <div style="padding:16px;background:#f7f7fb;border-radius:14px;">
+              <strong>Situação</strong><br>
+              <span>🟢 ATIVA</span>
+            </div>
+
+            <div style="padding:16px;background:#f7f7fb;border-radius:14px;">
+              <strong>Abertura</strong><br>
+              <span>16/01/2017</span>
+            </div>
+
+            <div style="padding:16px;background:#f7f7fb;border-radius:14px;">
+              <strong>Natureza Jurídica</strong><br>
+              <span>Sociedade Empresária Limitada</span>
+            </div>
+
+            <div style="padding:16px;background:#f7f7fb;border-radius:14px;">
+              <strong>Sede</strong><br>
+              <span>Rio de Janeiro/RJ</span>
+            </div>
+
+            <div style="padding:16px;background:#f7f7fb;border-radius:14px;grid-column:1/-1;">
+              <strong>Atividade Principal</strong><br>
+              <span>Atividade médica ambulatorial com recursos para realização de procedimentos cirúrgicos</span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= DIFERENCIAIS ================= -->
+
+    <section>
+
+      <div class="container">
+
+
+        <div class="section-header">
+
+          <span>
+            Nossos diferenciais
+          </span>
+
+          <h2>
+            Cuidado pensado em cada detalhe.
+          </h2>
+
+          <p>
+            Nosso compromisso é proporcionar uma experiência
+            profissional, acolhedora e eficiente.
+          </p>
+
+        </div>
+
+
+        <div class="cards">
+
+
+          <div class="card">
+
+            <div class="card-icon">
+              ♡
+            </div>
+
+            <h3>
+              Atendimento humanizado
+            </h3>
+
+            <p>
+              Valorizamos cada pessoa e buscamos oferecer
+              um atendimento próximo e respeitoso.
+            </p>
+
+          </div>
+
+
+          <div class="card">
+
+            <div class="card-icon">
+              ✚
+            </div>
+
+            <h3>
+              Profissionais qualificados
+            </h3>
+
+            <p>
+              Contamos com profissionais preparados para
+              diferentes áreas e necessidades.
+            </p>
+
+          </div>
+
+
+          <div class="card">
+
+            <div class="card-icon">
+              ⌂
+            </div>
+
+            <h3>
+              Estrutura preparada
+            </h3>
+
+            <p>
+              Um ambiente pensado para oferecer conforto,
+              organização e praticidade.
+            </p>
+
+          </div>
+
+
+          <div class="card">
+
+            <div class="card-icon">
+              ✓
+            </div>
+
+            <h3>
+              Qualidade
+            </h3>
+
+            <p>
+              Trabalhamos continuamente para manter padrões
+              elevados de atendimento.
+            </p>
+
+          </div>
+
+
+          <div class="card">
+
+            <div class="card-icon">
+              ★
+            </div>
+
+            <h3>
+              Experiência
+            </h3>
+
+            <p>
+              Uma trajetória construída com dedicação,
+              responsabilidade e confiança.
+            </p>
+
+          </div>
+
+
+          <div class="card">
+
+            <div class="card-icon">
+              +
+            </div>
+
+            <h3>
+              Cuidado completo
+            </h3>
+
+            <p>
+              Diversas soluções reunidas para facilitar
+              o acesso ao cuidado em saúde.
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= ESPECIALIDADES ================= -->
+
+    <section class="services" id="especialidades">
+
+      <div class="container">
+
+
+        <div class="section-header">
+
+          <span>
+            Especialidades e serviços
+          </span>
+
+          <h2>
+            Soluções para diferentes necessidades.
+          </h2>
+
+          <p>
+            Conte com uma estrutura preparada para oferecer
+            diferentes serviços de saúde.
+          </p>
+
+        </div>
+
+
+        <div class="service-grid">
+
+
+          <div class="service">
+
+            <div class="service-icon">
+              ✚
+            </div>
+
+            <div>
+
+              <h3>
+                Consultas médicas
+              </h3>
+
+              <p>
+                Atendimento em diferentes especialidades.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="service">
+
+            <div class="service-icon">
+              ⌁
+            </div>
+
+            <div>
+
+              <h3>
+                Exames laboratoriais
+              </h3>
+
+              <p>
+                Serviços para acompanhamento da saúde.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="service">
+
+            <div class="service-icon">
+              ♡
+            </div>
+
+            <div>
+
+              <h3>
+                Exames cardiológicos
+              </h3>
+
+              <p>
+                Procedimentos e avaliações cardiológicas.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="service">
+
+            <div class="service-icon">
+              +
+            </div>
+
+            <div>
+
+              <h3>
+                Odontologia
+              </h3>
+
+              <p>
+                Cuidados odontológicos para diferentes necessidades.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="service">
+
+            <div class="service-icon">
+              ⌕
+            </div>
+
+            <div>
+
+              <h3>
+                Exames de imagem
+              </h3>
+
+              <p>
+                Serviços de apoio ao diagnóstico.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="service">
+
+            <div class="service-icon">
+              ✓
+            </div>
+
+            <div>
+
+              <h3>
+                Pequenas cirurgias
+              </h3>
+
+              <p>
+                Procedimentos realizados conforme indicação.
+              </p>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= ESTRUTURA ================= -->
+
+    <section id="estrutura">
+
+      <div class="container">
+
+
+        <div class="section-header">
+
+          <span>
+            Nossa estrutura
+          </span>
+
+          <h2>
+            Um ambiente preparado para receber você.
+          </h2>
+
+          <p>
+            Estrutura organizada e pensada para proporcionar
+            conforto durante sua experiência conosco.
+          </p>
+
+        </div>
+
+
+        <!-- SOMENTE FOTOS DIFERENTES -->
+
+        <div class="gallery">
+
+
+          <div class="gallery-item">
+
+            <img
+              src="https://vibe.filesafe.space/1782152642790896981/attachments/e275f36a-b8a0-4b3d-ab29-4fe0d8bd6e7d.png"
+              alt="Recepção da clínica"
+            >
+
+          </div>
+
+
+          <div class="gallery-item">
+
+            <img
+              src="https://vibe.filesafe.space/1782152642790896981/attachments/360bc066-a8cc-421c-b97e-145510d1fad3.png"
+              alt="Estrutura interna da clínica"
+            >
+
+          </div>
+
+
+          <div class="gallery-item">
+
+            <img
+              src="https://vibe.filesafe.space/1782152642790896981/attachments/55349dcd-8373-4471-bd61-14bc90a5c2fb.png"
+              alt="Identidade visual"
+            >
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= EXPERIÊNCIA ================= -->
+
+    <section class="experience">
+
+      <div class="container">
+
+
+        <div class="experience-box">
+
+
+          <div>
+
+            <h2>
+              Uma trajetória construída com dedicação.
+            </h2>
+
+            <p>
+              São anos de experiência dedicados à construção de
+              uma relação de confiança com pacientes, profissionais
+              e parceiros.
+            </p>
+
+          </div>
+
+
+          <div class="experience-number">
+
+            <strong>
+              7+
+            </strong>
+
+            <span>
+              anos de experiência e dedicação
+            </span>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ================= VAGA ================= -->
+
+    <section class="jobs" id="vagas">
+
+      <div class="container">
+
+
+        <div class="job-intro">
+
+          <span class="badge">
+            ● Estamos contratando
+          </span>
+
+          <h2>
+            Faça parte da nossa equipe.
+          </h2>
+
+          <p>
+            Confira abaixo as informações da oportunidade disponível.
+          </p>
+
+        </div>
+
+
+        <div class="job-card">
+
+
+          <div class="job-top">
+
+            <small>
+              Oportunidade profissional
+            </small>
+
+            <h3>
+              Recepcionista de Consultório Médico
+            </h3>
+
+            <p>
+              Buscamos uma pessoa organizada, cordial e comprometida
+              para integrar nossa equipe de atendimento.
+            </p>
+
+          </div>
+
+
+          <div class="job-body">
+
+
+            <div class="job-info">
+
+
+              <div class="info-box">
+
+                <small>
+                  Regime de contratação
+                </small>
+
+                <strong>
+                  CLT — Efetivo
+                </strong>
+
+              </div>
+
+
+              <div class="info-box">
+
+                <small>
+                  Remuneração
+                </small>
+
+                <strong>
+                  R$ 2.300,00
+                </strong>
+
+              </div>
+
+
+              <div class="info-box">
+
+                <small>
+                  Jornada
+                </small>
+
+                <strong>
+                  Segunda a sexta-feira
+                </strong>
+
+              </div>
+
+
+              <div class="info-box">
+
+                <small>
+                  Horário
+                </small>
+
+                <strong>
+                  09h às 17h ou 12h às 20h
+                </strong>
+
+              </div>
+
+
+            </div>
+
+
+            <div class="job-section">
+
+              <h4>
+                Requisitos
+              </h4>
+
+              <ul class="job-list">
+
+                <li>
+                  Experiência ou identificação com atendimento ao público.
+                </li>
+
+                <li>
+                  Boa comunicação e postura profissional.
+                </li>
+
+                <li>
+                  Organização e responsabilidade.
+                </li>
+
+                <li>
+                  Disponibilidade para a jornada informada.
+                </li>
+
+                <li>
+                  Qualificação de Recepcionista de Consultório Médico.
+                </li>
+
+              </ul>
+
+            </div>
+
+
+            <div class="job-section">
+
+              <h4>
+                Benefícios
+              </h4>
+
+
+              <div class="benefits">
+
+                <span class="benefit">
+                  VA R$ 320,00
+                </span>
+
+                <span class="benefit">
+                  VR R$ 537,00
+                </span>
+
+                <span class="benefit">
+                  Vale-transporte
+                </span>
+
+                <span class="benefit">
+                  Convênio médico
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="job-section">
+
+              <h4>
+                Documentação
+              </h4>
+
+
+              <ul class="job-list">
+
+                <li>
+                  Carteira de Trabalho.
+                </li>
+
+                <li>
+                  Telefone de contato atualizado.
+                </li>
+
+                <li>
+                  Certificado atualizado de Recepcionista de Consultório Médico.
+                </li>
+
+              </ul>
+
+            </div>
+
+
+            <!-- ================= AVISO VERMELHO ================= -->
+
+            <div class="important-notice">
+
+              <strong>
+               
+            <!-- ================= WHATSAPP ================= -->
+
+            <div class="job-cta">
+
+              <p>
+                Para receber mais informações sobre a oportunidade,
+                entre em contato pelo WhatsApp.
+              </p>
+
+
+              <a
+                class="whatsapp-btn"
+                href="https://wa.me/5521971371268?text=Ol%C3%A1!%20Gostaria%20de%20receber%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20vaga%20de%20Recepcionista%20de%20Consult%C3%B3rio%20M%C3%A9dico."
+                target="_blank"
+                rel="noopener"
+              >
+
+                <span style="font-size:20px;">
+                  ☏
+                </span>
+
+                Falar pelo WhatsApp
+
+              </a>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- ================= RODAPÉ ================= -->
+
+  <footer>
+
+    <div class="container">
+
+
+      <div class="footer-grid">
+
+
+        <div>
+
+
+          <div class="footer-brand">
+
+            <div class="logo">
+
+              <img
+                src="https://pps.whatsapp.net/v/t61.24694-24/473411930_2127342767702952_8773740801055994734_n.jpg?ccb=11-4&oh=01_Q5Aa5gH-WaT6Yqts9UqewKgclOTX3aIqcz4rpavIkncWb4XR-A&oe=6AAAE5D7&_nc_sid=5e03e0&_nc_cat=103"
+                alt="Logo"
+              >
+
+            </div>
+
+            <span>
+            Clínica Popular Sensivita
+            </span>
+
+          </div>
+
+
+          <p>
+            Cuidado, acolhimento e qualidade em um ambiente
+            preparado para oferecer uma experiência completa
+            aos nossos pacientes.
+          </p>
+
+
+        </div>
+
+
+        <div>
+
+          <h4>
+            Navegação
+          </h4>
+
+
+          <div class="footer-links">
+
+            <a href="#inicio">
+              Início
+            </a>
+
+            <a href="#clinica">
+              Nossa Clínica
+            </a>
+
+            <a href="#especialidades">
+              Especialidades
+            </a>
+
+            <a href="#estrutura">
+              Estrutura
+            </a>
+
+            <a href="#vagas">
+              Oportunidades
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <h4>
+            Oportunidades
+          </h4>
+
+
+          <div class="footer-links">
+
+            <a href="#vagas">
+              Recepcionista de Consultório Médico
+            </a>
+
+            <a
+              href="https://wa.me/5521971371268?text=Ol%C3%A1!%20Gostaria%20de%20receber%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20vaga."
+              target="_blank"
+              rel="noopener"
+            >
+              Atendimento via WhatsApp
+            </a>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="copyright">
+
+        © 2026 Clínica Popular Sensivita — Todos os direitos reservados.
+
+      </div>
+
+
+    </div>
+
+  </footer>
+
+
+  <!-- ================= WHATSAPP FLUTUANTE ================= -->
+
+  <a
+    class="floating-whatsapp"
+    href="https://wa.me/5521971371268?text=Ol%C3%A1!%20Gostaria%20de%20receber%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20vaga."
+    target="_blank"
+    rel="noopener"
+    aria-label="Falar pelo WhatsApp"
+  >
+
+    ☏
+
+  </a>
+
+
+</body>
+</html>
